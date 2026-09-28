@@ -49,8 +49,12 @@
       <bpmn:incoming>Flow_10</bpmn:incoming>
       <bpmn:outgoing>Flow_9</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:endEvent id="EndEvent_1" name="Завершение">
+    <bpmn:userTask id="Task_InspectCar" name="Осмотр автомобиля">
       <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_1" name="Завершение">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
       <bpmn:incoming>Flow_No1</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_Authorize" />
@@ -66,7 +70,8 @@
     <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_Reserve" targetRef="Gateway_Parallel_Join" />
     <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_Prepare" targetRef="Gateway_Parallel_Join" />
     <bpmn:sequenceFlow id="Flow_10" sourceRef="Gateway_Parallel_Join" targetRef="Task_StartRental" />
-    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_StartRental" targetRef="EndEvent_1" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_StartRental" targetRef="Task_InspectCar" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_InspectCar" targetRef="EndEvent_1" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_CarSharing">
@@ -112,10 +117,13 @@
       <bpmndi:BPMNShape id="Task_StartRental_di" bpmnElement="Task_StartRental">
         <dc:Bounds x="1220" y="200" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_InspectCar_di" bpmnElement="Task_InspectCar">
+        <dc:Bounds x="1380" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
-        <dc:Bounds x="1380" y="215" width="50" height="50" />
+        <dc:Bounds x="1550" y="215" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1385" y="272" width="40" height="14" />
+          <dc:Bounds x="1555" y="272" width="40" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
@@ -140,8 +148,8 @@
       <bpmndi:BPMNEdge id="Flow_No1_di" bpmnElement="Flow_No1">
         <di:waypoint x="525" y="265" />
         <di:waypoint x="525" y="480" />
-        <di:waypoint x="1405" y="480" />
-        <di:waypoint x="1405" y="265" />
+        <di:waypoint x="1575" y="480" />
+        <di:waypoint x="1575" y="265" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="530" y="300" width="20" height="14" />
         </bpmndi:BPMNLabel>
@@ -193,6 +201,10 @@
       <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
         <di:waypoint x="1320" y="240" />
         <di:waypoint x="1380" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1480" y="240" />
+        <di:waypoint x="1550" y="240" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
