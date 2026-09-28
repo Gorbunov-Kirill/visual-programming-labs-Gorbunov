@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="hIjzM4L7_a7Npq9cUYSO">
+    <mxGraphModel dx="1703" dy="2672" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QbNax9alOMuCfKxEeCms-48" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Начало" vertex="1">
+          <mxGeometry height="30" width="30" x="210" y="-1640" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-49" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fontFamily=Helvetica;fontSize=12;" value="Ввод данных клиента" vertex="1">
+          <mxGeometry height="50" width="120" x="165" y="-1570" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fontFamily=Helvetica;fontSize=12;" value="Проверка данных" vertex="1">
+          <mxGeometry height="50" width="120" x="165" y="-1480" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-51" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="Данные корректны?" vertex="1">
+          <mxGeometry height="60" width="80" x="185" y="-1390" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fontFamily=Helvetica;fontSize=12;" value="Отправка на доработку" vertex="1">
+          <mxGeometry height="50" width="120" x="40" y="-1280" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-53" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fontFamily=Helvetica;fontSize=12;" value="Сохранение заявки" vertex="1">
+          <mxGeometry height="50" width="120" x="290" y="-1280" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;" value="Конец" vertex="1">
+          <mxGeometry height="30" width="30" x="335" y="-1180" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-55" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="QbNax9alOMuCfKxEeCms-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-56" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="QbNax9alOMuCfKxEeCms-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-57" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="QbNax9alOMuCfKxEeCms-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-58" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;" target="QbNax9alOMuCfKxEeCms-52" value="Нет">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-59" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;" target="QbNax9alOMuCfKxEeCms-53" value="Да">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-60" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="QbNax9alOMuCfKxEeCms-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QbNax9alOMuCfKxEeCms-61" edge="1" parent="1" source="QbNax9alOMuCfKxEeCms-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="QbNax9alOMuCfKxEeCms-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
