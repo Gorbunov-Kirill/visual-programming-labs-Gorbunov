@@ -1,0 +1,137 @@
+[
+    {
+        "id": "n_2_9_inject",
+        "type": "inject",
+        "z": "flow_09",
+        "name": "Датчик",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_9_func"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_9_func",
+        "type": "function",
+        "z": "flow_09",
+        "name": "Случайная температура",
+        "func": "msg.payload = Math.round(15 + Math.random() * 15);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_9_gauge",
+                "n_2_9_chart"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_9_gauge",
+        "type": "ui_gauge",
+        "z": "flow_09",
+        "name": "Температура",
+        "group": "n_2_9_group",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Температура",
+        "label": "°C",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "n_2_9_chart",
+        "type": "ui_chart",
+        "z": "flow_09",
+        "name": "История",
+        "group": "n_2_9_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "История температуры",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e"
+        ],
+        "outputs": 1,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "n_2_9_group",
+        "type": "ui_group",
+        "name": "Датчик температуры",
+        "tab": "n_2_9_tab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "n_2_9_tab",
+        "type": "ui_tab",
+        "name": "Мониторинг",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1d26fef365a0795e",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
