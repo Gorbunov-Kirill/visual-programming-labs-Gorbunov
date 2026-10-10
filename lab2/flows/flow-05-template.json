@@ -1,0 +1,63 @@
+[
+    {
+        "id": "n_2_5_inject",
+        "type": "inject",
+        "z": "flow_05",
+        "name": "Объект",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"name\":\"Горбунов Кирилл\",\"lab\":2,\"group\":\"УИР-241\"}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_5_template"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_5_template",
+        "type": "template",
+        "z": "flow_05",
+        "name": "2.5 Mustache",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"student\":\"{{payload.name}}\",\"lab\":\"{{payload.lab}}\",\"group\":\"{{payload.group}}\"}",
+        "output": "json",
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_5_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_5_debug",
+        "type": "debug",
+        "z": "flow_05",
+        "name": "2.5 Template Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    }
+]
