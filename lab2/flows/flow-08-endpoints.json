@@ -1,0 +1,144 @@
+[
+    {
+        "id": "n_2_8_in_text",
+        "type": "http in",
+        "z": "flow_08",
+        "name": "GET /api/text",
+        "url": "/api/text",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "n_2_8_tpl_text"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_8_tpl_text",
+        "type": "template",
+        "z": "flow_08",
+        "name": "Text response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "Это простой текстовый ответ от Node-RED.",
+        "output": "str",
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "n_2_8_resp_text"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_8_resp_text",
+        "type": "http response",
+        "z": "flow_08",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 560,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "n_2_8_in_info",
+        "type": "http in",
+        "z": "flow_08",
+        "name": "GET /api/info",
+        "url": "/api/info",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "n_2_8_tpl_info"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_8_tpl_info",
+        "type": "template",
+        "z": "flow_08",
+        "name": "JSON response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"status\":\"ok\",\"author\":\"Горбунов Кирилл\",\"group\":\"УИР-241\"}",
+        "output": "json",
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "n_2_8_resp_info"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_8_resp_info",
+        "type": "http response",
+        "z": "flow_08",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 560,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "n_2_8_in_items",
+        "type": "http in",
+        "z": "flow_08",
+        "name": "GET /api/items/:id",
+        "url": "/api/items/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "n_2_8_func_items"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_8_func_items",
+        "type": "function",
+        "z": "flow_08",
+        "name": "Проверка id",
+        "func": "const id = msg.req.params.id;\nif (id === '1') {\n    msg.statusCode = 200;\n    msg.payload = { id: 1, name: 'Item One', author: 'Горбунов' };\n} else if (id === '2') {\n    msg.statusCode = 200;\n    msg.payload = { id: 2, name: 'Item Two', author: 'Горбунов' };\n} else {\n    msg.statusCode = 404;\n    msg.payload = { error: 'Not found', id: id };\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "n_2_8_resp_items"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_8_resp_items",
+        "type": "http response",
+        "z": "flow_08",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 220,
+        "wires": []
+    }
+]
