@@ -1,0 +1,125 @@
+[
+    {
+        "id": "n_2_7_inject",
+        "type": "inject",
+        "z": "flow_07",
+        "name": "Каждые 5 сек",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "n_2_7_func"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_7_func",
+        "type": "function",
+        "z": "flow_07",
+        "name": "Случайное число",
+        "func": "msg.payload = Math.floor(Math.random() * 100);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "n_2_7_mqttout"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_7_mqttout",
+        "type": "mqtt out",
+        "z": "flow_07",
+        "name": "Публикация",
+        "topic": "student/Gorbunov/lab2/test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "n_2_7_broker",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "n_2_7_mqttin",
+        "type": "mqtt in",
+        "z": "flow_07",
+        "name": "Подписка",
+        "topic": "student/Gorbunov/lab2/test",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "n_2_7_broker",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "n_2_7_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_7_debug",
+        "type": "debug",
+        "z": "flow_07",
+        "name": "2.7 MQTT In",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "n_2_7_broker",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Public",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
