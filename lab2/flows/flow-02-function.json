@@ -1,0 +1,64 @@
+[
+    {
+        "id": "n_2_2_inject",
+        "type": "inject",
+        "z": "flow_02",
+        "name": "Число 42",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "42",
+        "payloadType": "num",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_2_func"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_2_func",
+        "type": "function",
+        "z": "flow_02",
+        "name": "JS Логика",
+        "func": "const baseValue = parseInt(msg.payload);\nlet itemsList = ['Горбунов', 'Петров', 'Сидоров'];\nlet resultObj = { student: 'Горбунов', status: 'Active' };\n\nif (baseValue > 10) {\n    resultObj.status = 'High Value';\n} else {\n    resultObj.status = 'Low Value';\n}\n\nfor (let i = 0; i < itemsList.length; i++) {\n    if (itemsList[i] === 'Горбунов') {\n        resultObj.found = true;\n    }\n}\n\nmsg.payload = resultObj;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_2_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_2_debug",
+        "type": "debug",
+        "z": "flow_02",
+        "name": "2.2 Function Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    }
+]
