@@ -1,0 +1,85 @@
+[
+    {
+        "id": "n_2_4_inject",
+        "type": "inject",
+        "z": "flow_04",
+        "name": "Триггер Change",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Сырые данные",
+        "payloadType": "str",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_4_change"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_4_change",
+        "type": "change",
+        "z": "flow_04",
+        "name": "2.4 Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "lab2/change-test",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Hello from Change Node",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_4_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_4_debug",
+        "type": "debug",
+        "z": "flow_04",
+        "name": "2.4 Complete Msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 100,
+        "wires": []
+    }
+]
