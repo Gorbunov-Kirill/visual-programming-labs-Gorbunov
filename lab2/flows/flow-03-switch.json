@@ -1,0 +1,114 @@
+[
+    {
+        "id": "n_2_3_inject",
+        "type": "inject",
+        "z": "flow_03",
+        "name": "Число 5",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_3_func"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_3_func",
+        "type": "function",
+        "z": "flow_03",
+        "name": "JS Логика",
+        "func": "const baseValue = parseInt(msg.payload);\nlet resultObj = { student: 'Горбунов', status: 'Active' };\nif (baseValue > 10) {\n    resultObj.status = 'High Value';\n} else {\n    resultObj.status = 'Low Value';\n}\nmsg.payload = resultObj;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_3_switch"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_3_switch",
+        "type": "switch",
+        "z": "flow_03",
+        "name": "2.3 Switch",
+        "property": "payload.status",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "High Value",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Low Value",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_3_debug1"
+            ],
+            [
+                "n_2_3_debug2"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_3_debug1",
+        "type": "debug",
+        "z": "flow_03",
+        "name": "Выход 1 (High)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "n_2_3_debug2",
+        "type": "debug",
+        "z": "flow_03",
+        "name": "Выход 2 (Low)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    }
+]
