@@ -1,0 +1,67 @@
+[
+    {
+        "id": "n_2_6_inject",
+        "type": "inject",
+        "z": "flow_06",
+        "name": "Запрос к API",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_6_http"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_6_http",
+        "type": "http request",
+        "z": "flow_06",
+        "name": "Cat Facts API",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://catfact.ninja/fact",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "headers": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_6_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_6_debug",
+        "type": "debug",
+        "z": "flow_06",
+        "name": "2.6 API Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 100,
+        "wires": []
+    }
+]
