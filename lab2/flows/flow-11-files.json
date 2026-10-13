@@ -1,0 +1,117 @@
+[
+    {
+        "id": "n_2_11_inject_w",
+        "type": "inject",
+        "z": "flow_11",
+        "name": "Записать",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"student\":\"Горбунов Кирилл\",\"group\":\"УИР-241\",\"lab\":2}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "n_2_11_func_w"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_11_func_w",
+        "type": "function",
+        "z": "flow_11",
+        "name": "Подготовка",
+        "func": "msg.payload = JSON.stringify(msg.payload, null, 2);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "n_2_11_fileout"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_11_fileout",
+        "type": "file",
+        "z": "flow_11",
+        "name": "data.json",
+        "filename": "/tmp/lab2-data.json",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 540,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "n_2_11_inject_r",
+        "type": "inject",
+        "z": "flow_11",
+        "name": "Прочитать",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "n_2_11_filein"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_11_filein",
+        "type": "file in",
+        "z": "flow_11",
+        "name": "data.json",
+        "filename": "/tmp/lab2-data.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "n_2_11_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_11_debug",
+        "type": "debug",
+        "z": "flow_11",
+        "name": "2.11 File Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    }
+]
