@@ -1,0 +1,188 @@
+[
+    {
+        "id": "b4a646c0151f4bb2",
+        "type": "telegram receiver",
+        "z": "63e1fd15e95ac32e",
+        "name": "Приём",
+        "bot": "n_2_10_config",
+        "inputs": 0,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "23479858d33b280f",
+                "b0fa76767b7fb78e",
+                "20754d4fd5a9f816"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "23479858d33b280f",
+        "type": "function",
+        "z": "63e1fd15e95ac32e",
+        "name": "Эхо (текст)",
+        "func": "var chatId = msg.payload.chatId || (msg.payload.chat && msg.payload.chat.id);\nvar text = msg.payload.text || msg.payload.content || '';\n\nif (text.startsWith('/')) {\n    return null;\n}\n\nmsg.payload = { chatId: chatId, type: 'message', content: text };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "ced90e0a85221056"
+            ]
+        ]
+    },
+    {
+        "id": "b0fa76767b7fb78e",
+        "type": "telegram command",
+        "z": "63e1fd15e95ac32e",
+        "name": "/start",
+        "command": "/start",
+        "language": "",
+        "bot": "n_2_10_config",
+        "outputs": 2,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "a2a678f9c25c5ba5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a2a678f9c25c5ba5",
+        "type": "function",
+        "z": "63e1fd15e95ac32e",
+        "name": "Текст /start",
+        "func": "var chatId = msg.payload.chatId || (msg.payload.chat && msg.payload.chat.id);\nmsg.payload = { chatId: chatId, type: 'message', content: 'Привет! Бот лабораторной работы №2 запущен.' };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "3603cae0502676f8"
+            ]
+        ]
+    },
+    {
+        "id": "3603cae0502676f8",
+        "type": "telegram sender",
+        "z": "63e1fd15e95ac32e",
+        "name": "Ответ /start",
+        "bot": "n_2_10_config",
+        "outputs": 1,
+        "x": 800,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20754d4fd5a9f816",
+        "type": "telegram command",
+        "z": "63e1fd15e95ac32e",
+        "name": "/time",
+        "command": "/time",
+        "language": "",
+        "bot": "n_2_10_config",
+        "outputs": 2,
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "faa12b3326607b48"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "faa12b3326607b48",
+        "type": "function",
+        "z": "63e1fd15e95ac32e",
+        "name": "Текст /time",
+        "func": "var chatId = msg.payload.chatId || (msg.payload.chat && msg.payload.chat.id);\nmsg.payload = { chatId: chatId, type: 'message', content: 'Текущее время: ' + new Date().toLocaleString() };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "f04b4050187536c0"
+            ]
+        ]
+    },
+    {
+        "id": "f04b4050187536c0",
+        "type": "telegram sender",
+        "z": "63e1fd15e95ac32e",
+        "name": "Ответ /time",
+        "bot": "n_2_10_config",
+        "outputs": 1,
+        "x": 800,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ced90e0a85221056",
+        "type": "telegram sender",
+        "z": "63e1fd15e95ac32e",
+        "name": "Эхо",
+        "bot": "n_2_10_config",
+        "outputs": 1,
+        "x": 590,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "n_2_10_config",
+        "type": "telegram bot",
+        "botname": "labtwo_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "pollinterval": "",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "",
+        "socksusername": "",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "",
+        "localbotport": "",
+        "publicbotport": "",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "2ee5db2b4776906c",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "19.0.3"
+        }
+    }
+]
