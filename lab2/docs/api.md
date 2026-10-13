@@ -1,8 +1,6 @@
-\# API Documentation
+# API Documentation
 
-
-
-\## GET /api/text
+## GET /api/text
 
 Возвращает простой текст.
 
@@ -10,9 +8,7 @@
 
 Ответ: `Это простой текстовый ответ от Node-RED.`
 
-
-
-\## GET /api/info
+## GET /api/info
 
 Возвращает JSON с двумя полями.
 
@@ -20,13 +16,9 @@
 
 Ответ: `{"status":"ok","author":"Горбунов Кирилл","group":"УИР-241"}`
 
-
-
-\## GET /api/items/:id
+## GET /api/items/:id
 
 Возвращает объект по id.
 
-\- Успех: http://localhost:1880/api/items/1 → `{"id":1,"name":"Item One","author":"Горбунов"}`
-
-\- Ошибка: http://localhost:1880/api/items/999 → 404 `{"error":"Not found","id":"999"}`
-
+- Успех: http://localhost:1880/api/items/1 → `{"id":1,"name":"Item One","author":"Горбунов"}`
+- Ошибка: http://localhost:1880/api/items/999 → 404 `{"error":"Not found","id":"999"}`
