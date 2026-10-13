@@ -1,0 +1,58 @@
+[
+    {
+        "id": "n_2_12_inject",
+        "type": "inject",
+        "z": "flow_12",
+        "name": "Счётчик",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_12_func"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_12_func",
+        "type": "function",
+        "z": "flow_12",
+        "name": "Flow Context",
+        "func": "let count = flow.get('counter') || 0;\ncount += 1;\nflow.set('counter', count);\nmsg.payload = `Счётчик: ${count}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "n_2_12_debug"
+            ]
+        ]
+    },
+    {
+        "id": "n_2_12_debug",
+        "type": "debug",
+        "z": "flow_12",
+        "name": "2.12 Context",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    }
+]
