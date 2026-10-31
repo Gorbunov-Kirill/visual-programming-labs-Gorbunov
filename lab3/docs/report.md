@@ -27,11 +27,20 @@
 - Глобальные переменные и стили.
 
 ## 6. Скриншоты
-- 01-prompt.png
-- 02-buildguide-1.png, 02-buildguide-before.png, 02-buildguide-after.png
-- 03-header.png, 03-global-variable.png, 04-style.png, 05-component.png
-- 06-data-type.png, 07-data-records.png
-- 08-workflow-create.png, 09-workflow-read.png, 09-workflow-update.png, 10-workflow-delete.png
+- [01-prompt.png](../screenshots/01-prompt.png)
+- [02-buildguide-1.png](../screenshots/02-buildguide-1.png)
+- [02-buildguide-before.png](../screenshots/02-buildguide-before.png)
+- [02-buildguide-after.png](../screenshots/02-buildguide-after.png)
+- [03-header.png](../screenshots/03-header.png)
+- [03-global-variable.png](../screenshots/03-global-variable.png)
+- [04-style.png](../screenshots/04-style.png)
+- [05-component.png](../screenshots/05-component.png)
+- [06-data-type.png](../screenshots/06-data-type.png)
+- [07-data-records.png](../screenshots/07-data-records.png)
+- [08-workflow-create.png](../screenshots/08-workflow-create.png)
+- [09-workflow-read.png](../screenshots/09-workflow-read.png)
+- [09-workflow-update.png](../screenshots/09-workflow-update.png)
+- [10-workflow-delete.png](../screenshots/10-workflow-delete.png)
 
 ## 7. Выводы
 В ходе работы освоена платформа Bubble как no-code инструмент. На практике применена AI-генерация для создания каркаса приложения и доработки страницы статистики, ручная настройка UI с использованием глобальных переменных и стилей, а также проектирование базы данных и реализация полного CRUD-цикла через workflows.
