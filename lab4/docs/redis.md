@@ -1,0 +1,18 @@
+# Redis в n8n
+
+## Установка Redis
+docker run -d --name redis -p 6379:6379 redis:7
+
+## Настройка Credentials
+Host: host.docker.internal
+Port: 6379
+
+## Workflow 1: Создание и чтение ключа
+Ключ: gorbunov
+Значение: Hello Redis
+Скриншот: 08-redis-set
+
+## Workflow 2: Удаление и проверка
+Ключ: gorbunov
+После удаления проверка Exists возвращает false.
+Скриншот: 09-redis-delete
