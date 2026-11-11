@@ -10,9 +10,11 @@ Port: 6379
 ## Workflow 1: Создание и чтение ключа
 Ключ: gorbunov
 Значение: Hello Redis
-Скриншот: 08-redis-set
+
+![08-redis-set](../screenshots/08-redis-set.png)
 
 ## Workflow 2: Удаление и проверка
 Ключ: gorbunov
 После удаления проверка Exists возвращает false.
-Скриншот: 09-redis-delete
+
+![09-redis-delete](../screenshots/09-redis-delete.png)
